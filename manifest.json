@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "ROYSlitherIoTools",
+  "description": "ROYSlitherIoTools is an extension for google chrome that provides helpful tools for slither io",
+  "version": "1.0",
+  "permissions": [
+    "http://slither.io/"
+  ],
+
+  "icons": { "48": "/resources/images/icon-48.jpg" },
+  "browser_action": {
+    "default_icon": {
+      "48": "/resources/images/icon-48.jpg"
+    },
+    "default_title": "ROYSlitherIoTools",
+    "default_popup": "src/main/popup.html"
+  },
+  "background": {
+    "scripts": ["/lib/jquery-3.3.1.min.js",
+      "/src/main/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["http://slither.io/"],
+      "js": ["/lib/jquery-3.3.1.min.js", "/src/injects/main.js"]
+    }
+	]
+}
